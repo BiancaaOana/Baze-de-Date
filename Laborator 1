@@ -1,0 +1,113 @@
+SELECT employee_id, last_name, salary, 
+salary * 12 ANNUALSALARY 
+FROM employees; 
+
+---3
+DESC employees;
+
+---4
+SELECT * ----selectez tot din 
+FROM departments;
+
+---5
+SELECT employee_id, last_name, job_id, hire_date
+FROM employees;
+---selectia e per linii
+
+---proiectie=selectarea coloanelor
+SELECT employee_id, last_name, job_id, hire_date, department_id
+FROM employees
+WHERE department_id = 30; 
+
+---6
+SELECT job_id 
+FROM employees; 
+SELECT DISTINCT job_id 
+FROM employees;
+
+---7 string intre apostrof; concatenare ||, alias " "
+SELECT last_name|| ', ' || 
+job_id "Angajat si titlu"           
+FROM    employees; 
+
+---9
+SELECT last_name, salary 
+FROM employees 
+WHERE salary > 2850 and salary <5000
+ORDER BY salary DESC;  --desc ca sa vad de la cel mai mare la cel mai mic
+
+---11
+SELECT last_name, salary 
+FROM employees 
+WHERE salary NOT BETWEEN 1500 and 2850;
+
+---12
+SELECT last_name, job_id, hire_date
+FROM  employees
+WHERE hire_date BETWEEN '20-FEB-1987'
+ AND '1-MAY-1989' 
+ ORDER BY hire_date; 
+ 
+ ---13
+ SELECT last_name, department_id
+ FROM employees
+WHERE department_id IN(10,30)
+ORDER BY last_name;
+
+
+---14 
+SELECT last_name, salary
+FROM employees
+WHERE salary  > 3500 AND department_id IN(10,30);
+
+---15
+SELECT 'orice'
+FROM dual;
+
+SELECT to_char(SYSDATE, 'DD-MM-YYYY HH24:MI:SS') "DATA CURENTA"
+FROM dual;
+
+---16
+SELECT first_name, last_name, hire_date  
+FROM employees 
+WHERE  TO_CHAR(hire_date, 'YYYY')=1987; 
+
+---17
+SELECT *
+From employees
+Where manager_id IS NULL;  ---EL E MANAGERUL 
+
+---18
+SELECT last_name, salary, commission_pct
+From employees
+Where commission_pct  IS NOT NULL 
+ORDER BY salary DESC , commission_pct DESC;
+
+---19
+SELECT last_name, salary, commission_pct
+From employees
+---Where commission_pct  IS NOT NULL 
+ORDER BY salary , commission_pct;
+
+---20
+SELECT last_name, first_name
+FROM employees
+WHERE LAST_NAME like '_a%';
+
+---23
+SELECT last_name, salary, commission_pct
+FROM employees
+WHERE salary > salary*NVL(commission_pct,0)*5;
+
+SELECT 5*null
+FROM dual;
+
+---
+SELECT LENGTH('Informatica')
+FROM dual;
+
+---
+SELECT USER  
+FROM dual;
+
+---
